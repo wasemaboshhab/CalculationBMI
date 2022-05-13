@@ -1,29 +1,29 @@
 
 
-import javax.swing.*;
 import java.awt.*;
 
 public class MainPanel extends Panel {
     NorthPanel northPanel;
-    SouthPanel southPanel;
-    CoordinatorPanel coordinatorPanel;
-    EastPanel eastPanel;
-    WestPanel westPanel;
+    SubmitClear submitClear;
+    BodyFrameAndGender bodyFrameAndGender;
+    BmiCalculate bmiCalculate;
+    PersonDetails westPanel;
+  //  Color newColor = new Color(160, 200, 135);
 
 
 
     public MainPanel() {
         setLayout(new BorderLayout());
-        coordinatorPanel = new CoordinatorPanel();
+        bodyFrameAndGender = new BodyFrameAndGender();
         northPanel = new NorthPanel();
-        southPanel = new SouthPanel();
-        eastPanel = new EastPanel();
-        westPanel = new WestPanel();
+        submitClear = new SubmitClear();
+        bmiCalculate = new BmiCalculate();
+        westPanel = new PersonDetails();
 
         add(northPanel,BorderLayout.NORTH);
-        add(coordinatorPanel,BorderLayout.CENTER);
-        add(southPanel,BorderLayout.SOUTH);
-        add(eastPanel,BorderLayout.EAST);
+        add(bodyFrameAndGender,BorderLayout.CENTER);
+        add(submitClear,BorderLayout.SOUTH);
+        add(bmiCalculate,BorderLayout.EAST);
         add(westPanel,BorderLayout.WEST);
 
 

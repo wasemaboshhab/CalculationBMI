@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Main {
-    public static final int WINDOW_WIDTH = 900;
+    public static final int WINDOW_WIDTH = 700;
     public static final int WINDOW_HEIGHT = 500;
 
     public static void main(String[] args) {
@@ -13,6 +13,8 @@ public class Main {
         frame.getContentPane().add(new MainPanel());
         frame.pack();
         frame.setVisible(true);
+        frame.setResizable(false);
+
 
 
 
