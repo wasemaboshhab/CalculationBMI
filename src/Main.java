@@ -10,10 +10,12 @@ public class Main {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setPreferredSize(new Dimension(WINDOW_WIDTH,WINDOW_HEIGHT));
         frame.setLocationRelativeTo(null);
-        frame.getContentPane().add(new MainPanel());
+        MainPanel mainPanel = new MainPanel();
+        frame.getContentPane().add(mainPanel);
         frame.pack();
         frame.setVisible(true);
         frame.setResizable(false);
+
 
 
 

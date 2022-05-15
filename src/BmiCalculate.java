@@ -6,8 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 public class BmiCalculate extends JPanel {
 
-        JSlider heightSlider;
-        JLabel heightLabel = new JLabel("Height");
+    JSlider heightSlider;
+    JLabel heightLabel = new JLabel("Height");
     JLabel actualWight = new JLabel("Enter your actual wight :");
     JTextField userActualWight = new JTextField(8);
     JLabel bmiResult = new JLabel();
@@ -27,7 +27,7 @@ public class BmiCalculate extends JPanel {
         heightSlider.setPaintTicks(true);
         heightSlider.setPaintLabels(true);
         //heightSlider.setAlignmentX(Component.LEFT_ALIGNMENT);
-        heightSlider.setBackground(newColor);
+//        heightSlider.setBackground(newColor);
 //userActualWight.setBackground(Color.GRAY);
         SliderListener listener = new SliderListener();
         heightSlider.addChangeListener(listener);
@@ -50,7 +50,37 @@ public class BmiCalculate extends JPanel {
 
         add(controls);
     }
-        private class SliderListener implements ChangeListener {
+
+    public JSlider getHeightSlider() {
+        return heightSlider;
+    }
+
+    public JLabel getHeightLabel() {
+        return heightLabel;
+    }
+
+    public JLabel getActualWight() {
+        return actualWight;
+    }
+
+    public JTextField getUserActualWight() {
+        return userActualWight;
+    }
+
+    public JLabel getBmiResult() {
+        return bmiResult;
+    }
+
+    public JPanel getControls() {
+        return controls;
+    }
+
+    public Color getNewColor() {
+        return newColor;
+    }
+
+
+    private class SliderListener implements ChangeListener {
         private int height;
         @Override
         public void stateChanged(ChangeEvent e) {

@@ -1,11 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.util.ArrayDeque;
+
 
 public class PersonDetails extends JPanel {
-JPanel controls = new JPanel();
+//    JPanel controls = new JPanel();
     JLabel firstName = new JLabel("First Name :");
     JTextField userFirstName = new JTextField(8);
     JLabel lastName = new JLabel("Last Name :");
@@ -14,9 +12,38 @@ JPanel controls = new JPanel();
     JTextField userAge = new JTextField(8);
     Color newColor = new Color(160, 200, 135);
 
-    public void setControls(JPanel controls) {
-        this.controls = controls;
+    public PersonDetails() {
+        JPanel controls = new JPanel();
+        setBackground(newColor);
+        setPreferredSize(new Dimension(230, 0));
+        BoxLayout layout = new BoxLayout(controls, BoxLayout.Y_AXIS);
+        controls.setLayout(layout);
+        controls.setBackground(newColor);
+        controls.add(Box.createRigidArea(new Dimension(0, 20)));
+
+        controls.add(firstName);
+        controls.add(userFirstName);
+
+        controls.add(Box.createRigidArea(new Dimension(0, 30)));
+
+        controls.add(lastName);
+        controls.add(userLastName);
+
+        controls.add(Box.createRigidArea(new Dimension(0, 30)));
+
+        controls.add(age);
+        controls.add(userAge);
+
+        controls.add(Box.createRigidArea(new Dimension(0, 30)));
+
+
+        add(controls);
+
     }
+
+//    public void setControls(JPanel controls) {
+//        this.controls = controls;
+//    }
 
     public void setFirstName(JLabel firstName) {
         this.firstName = firstName;
@@ -46,9 +73,9 @@ JPanel controls = new JPanel();
         this.newColor = newColor;
     }
 
-    public JPanel getControls() {
-        return controls;
-    }
+//    public JPanel getControls() {
+//        return controls;
+//    }
 
     public JLabel getFirstName() {
         return firstName;
@@ -76,37 +103,6 @@ JPanel controls = new JPanel();
 
     public Color getNewColor() {
         return newColor;
-    }
-
-    public PersonDetails() {
-        controls = new JPanel();
-        setBackground(newColor);
-        setPreferredSize(new Dimension(230, 0));
-        BoxLayout layout = new BoxLayout(controls, BoxLayout.Y_AXIS);
-        controls.setLayout(layout);
-        controls.setBackground(newColor);
-        controls.add(Box.createRigidArea(new Dimension(0, 20)));
-
-        controls.add(firstName);
-        controls.add(userFirstName);
-
-        controls.add(Box.createRigidArea(new Dimension(0, 30)));
-
-        controls.add(lastName);
-        controls.add(userLastName);
-
-        controls.add(Box.createRigidArea(new Dimension(0, 30)));
-
-        controls.add(age);
-        controls.add(userAge);
-
-        controls.add(Box.createRigidArea(new Dimension(0, 30)));
-
-
-        add(controls);
-
-
-
     }
 
 }
