@@ -1,10 +1,3 @@
-Exercise 2
-
-Wasim Abo Shab ID 3188944474, Wasemaboshhab@ edu.aac.ac.il
-Shirel Cohen ID 207911967, shirelc@edu.aac.ac.il
-Second year, Computer Science Department- Ashqelon College
-================================================
-
 :Assignment
 ,Writing an application that calculates  the physical condition
 weight and ideal weight of a human, when gender, height
