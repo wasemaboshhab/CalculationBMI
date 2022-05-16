@@ -11,6 +11,7 @@ public class BodyFrameAndGender extends JPanel {
     JRadioButton male = new JRadioButton("Male");
     JRadioButton female = new JRadioButton("Female");
     ButtonGroup groupGender = new ButtonGroup();
+
     JLabel bodyFrame = new JLabel("Body Frame: ");
     JRadioButton small = new JRadioButton("Small");
     JRadioButton medium = new JRadioButton("Medium");
@@ -74,10 +75,6 @@ public class BodyFrameAndGender extends JPanel {
         return groupGender;
     }
 
-    public Color getNewColor() {
-        return newColor;
-    }
-
     public JLabel getBodyFrame() {
         return bodyFrame;
     }
@@ -90,14 +87,15 @@ public class BodyFrameAndGender extends JPanel {
         return medium;
     }
 
-    public ButtonGroup getGroup() {
-        return groupGender;
-    }
-
     public JRadioButton getLarge() {
         return large;
     }
 
+    public ButtonGroup getGroup() {
+        return group;
+    }
 
-
+    public Color getNewColor() {
+        return newColor;
+    }
 }

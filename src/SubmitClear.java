@@ -6,7 +6,7 @@ import java.awt.*;
 public class SubmitClear extends JPanel {
     JButton submitButton = new JButton("Submit");
     JButton clearButton = new JButton("Clear");
-//    PersonDetails user = new PersonDetails();
+
 
 
     public SubmitClear() {
@@ -15,6 +15,7 @@ public class SubmitClear extends JPanel {
 
 //        SubmitOrClearListener listener = new SubmitOrClearListener();
 //        clearButton.addActionListener(listener);
+
         add(submitButton);
         add(clearButton);
 

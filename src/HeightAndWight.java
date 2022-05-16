@@ -4,7 +4,7 @@ import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-public class BmiCalculate extends JPanel {
+public class HeightAndWight extends JPanel {
 
     JSlider heightSlider;
     JLabel heightLabel = new JLabel("Height");
@@ -14,7 +14,7 @@ public class BmiCalculate extends JPanel {
     JPanel controls = new JPanel();
     Color newColor = new Color(160, 200, 135);
 
-    public BmiCalculate() {
+    public HeightAndWight() {
         setBackground(newColor);
         setPreferredSize(new Dimension(300, 0));
         BoxLayout layout = new BoxLayout(controls, BoxLayout.Y_AXIS);
@@ -26,9 +26,7 @@ public class BmiCalculate extends JPanel {
         heightSlider.setMinorTickSpacing(2);
         heightSlider.setPaintTicks(true);
         heightSlider.setPaintLabels(true);
-        //heightSlider.setAlignmentX(Component.LEFT_ALIGNMENT);
-//        heightSlider.setBackground(newColor);
-//userActualWight.setBackground(Color.GRAY);
+
         SliderListener listener = new SliderListener();
         heightSlider.addChangeListener(listener);
 
@@ -94,7 +92,7 @@ public class BmiCalculate extends JPanel {
         public void actionPerformed (ActionEvent event) {
             double wightTemp, bmi;
             String text = userActualWight.getText();
-            wightTemp= Integer.parseInt(text);
+            wightTemp = Integer.parseInt(text);
             bmi = wightTemp/Math.pow(heightSlider.getValue(),2);
             bmiResult.setText(Double.toString (bmi));
         }
