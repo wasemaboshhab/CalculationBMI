@@ -2,7 +2,10 @@ import javax.swing.*;
 import java.awt.*;
 
 public class ResultPanel extends JPanel {
-    JLabel bmi, bmiResult, weightStatus, idealWeight;
+    JLabel bmi, bmiResult, weightStatus, idealWeight
+            ,idealWeightResult, actualWeight;
+    ImageIcon healthBody;
+
 
 
     public ResultPanel() {
@@ -14,23 +17,44 @@ public class ResultPanel extends JPanel {
         bmiResult = new JLabel("");
         weightStatus = new JLabel("");
         idealWeight = new JLabel("");
-        add(bmi);
-        bmiResult.setAlignmentX(Component.LEFT_ALIGNMENT);
-        add(bmiResult);
-//        add(Box.createRigidArea(new Dimension(0, 5)));
-        weightStatus.setAlignmentX(Component.LEFT_ALIGNMENT);
-        add(weightStatus);
-        idealWeight.setAlignmentX(Component.LEFT_ALIGNMENT);
+        idealWeightResult = new JLabel("");
+        actualWeight = new JLabel("");
+        healthBody = new ImageIcon("healthy.jfif");
 
+        bmi.setAlignmentX(Component.CENTER_ALIGNMENT);
+        add(bmi);
+
+        bmiResult.setAlignmentX(Component.CENTER_ALIGNMENT);
+        add(bmiResult);
+
+        weightStatus.setAlignmentX(Component.CENTER_ALIGNMENT);
+        add(weightStatus);
+
+        idealWeight.setAlignmentX(Component.CENTER_ALIGNMENT);
         add(idealWeight);
 
+        idealWeightResult.setAlignmentX(Component.CENTER_ALIGNMENT);
+        add(idealWeightResult);
+
+        actualWeight.setAlignmentX(Component.CENTER_ALIGNMENT);
+        add(actualWeight);
 
 
 
+    }
 
 
 
-//        controls.add(Box.createRigidArea(new Dimension(0, 2)));
+    public ImageIcon getHealthBody() {
+        return healthBody;
+    }
+
+    public JLabel getActualWeight() {
+        return actualWeight;
+    }
+
+    public JLabel getIdealWeightResult() {
+        return idealWeightResult;
     }
 
     public JLabel getIdealWeight() {

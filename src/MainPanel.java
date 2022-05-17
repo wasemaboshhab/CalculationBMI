@@ -66,7 +66,7 @@ public class MainPanel extends Panel {
                 personDetails.getUserAge().setText("");
 
                 bodyFrameAndGender.getGroupGender().clearSelection();
-                bodyFrameAndGender.getGroup().clearSelection();
+                bodyFrameAndGender.getGroupBodyFrame().clearSelection();
 
                 heightAndWight.getHeightSlider().setValue(140);
                 heightAndWight.getHeightLabel().setText("Height: 140");
@@ -78,6 +78,8 @@ public class MainPanel extends Panel {
                 resultPanel.getBmiResult().setText("");
                 resultPanel.getWeightStatus().setText("");
                 resultPanel.getIdealWeight().setText("");
+                resultPanel.getIdealWeightResult().setText("");
+                resultPanel.getActualWeight().setText("");
 
 
 
@@ -85,29 +87,41 @@ public class MainPanel extends Panel {
 
             } else {
 
-                resultPanel.setBackground(new Color(241, 241, 241));
-                resultPanel.getBmi().setText("BMI: ");
-                int height = heightAndWight.getHeightSlider().getValue(); // 160 Integer
-                double userHeight = (float) (height / 100.0) * (height / 100.0); // 1.6 ^ 2
-
-                                //Weight
-                String weight = heightAndWight.getUserActualWight().getText();
-                double userWeight =(float) Double.parseDouble(weight);
-                System.out.println(userWeight);  // v
-                                //BMI calc
-                double userBmi =  (float) userWeight / userHeight;
-                resultPanel.getBmiResult().setText(Double.toString(userBmi));
+                if (!heightAndWight.getUserActualWight().getText().equals("") ) {
+                    resultPanel.setBackground(new Color(205, 232, 182));
+                    resultPanel.getBmi().setText("BMI: ");
+                    float height = (float) heightAndWight.getHeightSlider().getValue(); // 160 Integer
+                    float userHeight = (float) ((float) (height / 100.0) * (height / 100.0)); // 1.6 ^ 2
 
 
-                if (userBmi < 15) resultPanel.getWeightStatus().setText("Anorexic");
-                else if (15.0 < userBmi  && userBmi<18.5)  resultPanel.getWeightStatus().setText("Underweight");
-                else if (18.5 <userBmi && userBmi < 24.9) resultPanel.getWeightStatus().setText("Normal");
-                else if (25 < userBmi && userBmi < 29.9)   resultPanel.getWeightStatus().setText("Overweight");
-                else if (30 < userBmi && userBmi < 35){   resultPanel.getWeightStatus().setText("Obese");}
-                else{resultPanel.getWeightStatus().setText("Extreme Obese");}
+                    String weight = heightAndWight.getUserActualWight().getText();
+                    float userWeight = Float.parseFloat(weight);
 
+                    float userBmi = (userWeight / userHeight);
+                    resultPanel.getBmiResult().setText(Float.toString(userBmi));
 
-                resultPanel.getIdealWeight().setText("Ideal Weight:");
+                    if (userBmi < 15) resultPanel.getWeightStatus().setText("Anorexic");
+                    else if (15.0 < userBmi  && userBmi<18.5)  resultPanel.getWeightStatus().setText("Underweight");
+                    else if (18.5 <userBmi && userBmi < 24.9) resultPanel.getWeightStatus().setText("Normal");
+                    else if (25 < userBmi && userBmi < 29.9)   resultPanel.getWeightStatus().setText("Overweight");
+                    else if (30 < userBmi && userBmi < 35){   resultPanel.getWeightStatus().setText("Obese");}
+                    else{resultPanel.getWeightStatus().setText("Extreme Obese");}
+                    resultPanel.getIdealWeight().setText("<html><br>Ideal Weight:<html>");
+
+                    float userAge = Float.parseFloat(personDetails.getUserAge().getText());
+
+                    float slimness = (float) 0.0;
+                    if (bodyFrameAndGender.getSmall().isSelected()){ slimness = Deff.BODY_FRAME_SMALL;}
+                    if (bodyFrameAndGender.getMedium().isSelected()){ slimness = Deff.BODY_FRAME_MEDIUM;}
+                    if (bodyFrameAndGender.getLarge().isSelected()){ slimness = Deff.BODY_FRAME_LARGE;}
+
+                    float idealWeight = (float)( (height - 100.0 + (userAge / 10) ) * 0.9 * slimness );
+
+                    String userIdealWeight = Float.toString(idealWeight);
+                    resultPanel.getIdealWeightResult().setText("<html><br><html>" + userIdealWeight);
+                    resultPanel.getActualWeight().setText(" Actual weight: " + (Float.parseFloat(heightAndWight.getUserActualWight().getText())));
+
+                }
 
 
 

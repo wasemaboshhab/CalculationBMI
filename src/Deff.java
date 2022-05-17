@@ -5,9 +5,9 @@ public class Deff {
     public static final double NORMAL = 24.9;
     public static final int OBESE = 30;
     public static final int EXTREME_OBESE = 35;
-    public static final double BODY_FRAME_SMALL = 0.8;
-    public static final int BODY_FRAME_MEDIUM = 1;
-    public static final double BODY_FRAME_LARGE = 1.1;
+    public static final float BODY_FRAME_SMALL = (float) 0.9;
+    public static final float BODY_FRAME_MEDIUM = 1;
+    public static final float BODY_FRAME_LARGE = (float) 1.1;
 
 
 }

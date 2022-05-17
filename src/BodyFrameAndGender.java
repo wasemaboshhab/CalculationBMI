@@ -1,9 +1,5 @@
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class BodyFrameAndGender extends JPanel {
 //
@@ -16,11 +12,14 @@ public class BodyFrameAndGender extends JPanel {
     JRadioButton small = new JRadioButton("Small");
     JRadioButton medium = new JRadioButton("Medium");
     JRadioButton large = new JRadioButton("Large");
-    ButtonGroup group = new ButtonGroup();
+    ButtonGroup groupBodyFrame = new ButtonGroup();
     Color newColor = new Color(160, 200, 135);
+
+    ImageIcon health;
 
     public BodyFrameAndGender() {
         JPanel controls = new JPanel();
+        health = new ImageIcon("healthy.jfif");
         this.setBackground(newColor);
         BoxLayout layout = new BoxLayout(controls, BoxLayout.Y_AXIS);
         controls.setLayout(layout);
@@ -41,9 +40,9 @@ public class BodyFrameAndGender extends JPanel {
         controls.add(Box.createRigidArea(new Dimension(0, 40)));
 
         controls.add(bodyFrame);
-        group.add(small);
-        group.add(medium);
-        group.add(large);
+        groupBodyFrame.add(small);
+        groupBodyFrame.add(medium);
+        groupBodyFrame.add(large);
 
         controls.add(small);
         controls.add(medium);
@@ -58,6 +57,12 @@ public class BodyFrameAndGender extends JPanel {
 //        return controls;
 //    }
 
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        health.paintIcon(this, g, 0, 220);
+    }
 
     public JLabel getGender() {
         return gender;
@@ -91,8 +96,8 @@ public class BodyFrameAndGender extends JPanel {
         return large;
     }
 
-    public ButtonGroup getGroup() {
-        return group;
+    public ButtonGroup getGroupBodyFrame() {
+        return groupBodyFrame;
     }
 
     public Color getNewColor() {
