@@ -1,6 +1,4 @@
 
-
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,9 +13,6 @@ public class MainPanel extends Panel {
 
 
 
-  //  Color newColor = new Color(160, 200, 135);
-
-
 
     public MainPanel() {
         setLayout(new BorderLayout());
@@ -28,8 +23,6 @@ public class MainPanel extends Panel {
         personDetails = new PersonDetails();
         resultPanel = new ResultPanel();
 
-
-
         add(personDetails, BorderLayout.WEST);
         add(northPanel,BorderLayout.NORTH);
         add(bodyFrameAndGender,BorderLayout.CENTER);
@@ -38,20 +31,9 @@ public class MainPanel extends Panel {
 
         heightAndWight.add(resultPanel);
 
-
-
-
         SubmitOrClear buttonsListener = new SubmitOrClear();
         submitClear.getClearButton().addActionListener(buttonsListener);
         submitClear.getSubmitButton().addActionListener(buttonsListener);
-
-
-    }
-
-    @Override
-    public void paintComponents(Graphics g) {
-        super.paintComponents(g);
-
 
 
     }
@@ -81,12 +63,7 @@ public class MainPanel extends Panel {
                 resultPanel.getIdealWeightResult().setText("");
                 resultPanel.getActualWeight().setText("");
 
-
-
-
-
             } else {
-
                 if (!heightAndWight.getUserActualWight().getText().equals("") ) {
                     resultPanel.setBackground(new Color(205, 232, 182));
                     resultPanel.getBmi().setText("BMI: ");
@@ -122,27 +99,6 @@ public class MainPanel extends Panel {
                     resultPanel.getActualWeight().setText(" Actual weight: " + (Float.parseFloat(heightAndWight.getUserActualWight().getText())));
 
                 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             }
         }
     }
