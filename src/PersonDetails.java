@@ -3,7 +3,7 @@ import java.awt.*;
 
 
 public class PersonDetails extends JPanel {
-//    JPanel controls = new JPanel();
+
     JLabel firstName = new JLabel("First Name :");
     JTextField userFirstName = new JTextField(8);
     JLabel lastName = new JLabel("Last Name :");
