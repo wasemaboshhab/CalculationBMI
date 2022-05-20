@@ -13,6 +13,8 @@ public class HeightAndWight extends JPanel {
     JLabel bmiResult = new JLabel();
     JPanel controls = new JPanel();
     Color newColor = new Color(160, 200, 135);
+     int height;
+    double wightTemp;
 
     public HeightAndWight() {
         setBackground(newColor);
@@ -26,11 +28,14 @@ public class HeightAndWight extends JPanel {
         heightSlider.setMinorTickSpacing(2);
         heightSlider.setPaintTicks(true);
         heightSlider.setPaintLabels(true);
+        heightSlider.addChangeListener(e ->{
+                    height = heightSlider.getValue();
+                    heightLabel.setText("height: " + height + "cm");
+                }
+                );
 
-        SliderListener listener = new SliderListener();
-        heightSlider.addChangeListener(listener);
 
-        heightLabel = new JLabel("Height: 140");
+        heightLabel = new JLabel("Height: 140 cm");
         heightLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
         controls.add(Box.createRigidArea(new Dimension(0, 20)));
 
@@ -38,63 +43,38 @@ public class HeightAndWight extends JPanel {
         controls.add(heightSlider);
         controls.add(Box.createRigidArea(new Dimension(0, 40)));
 
-        userActualWight.addActionListener(new TempListener());
+        actualWight = new JLabel("Actual weight: ");
         controls.add(actualWight);
-        controls.add(userActualWight);
+        userActualWight = new JTextField();
+
+        userActualWight.addActionListener(e -> {
+                }
+                );        controls.add(userActualWight);
         controls.add(Box.createRigidArea(new Dimension(0, 40)));
 
-        JLabel bmiLabel = new JLabel("Your bmi is: ");
-
-
-        add(controls);
+        this.add(controls);
     }
 
     public JSlider getHeightSlider() {
         return heightSlider;
     }
 
-    public JLabel getHeightLabel() {
-        return heightLabel;
-    }
-
-    public JLabel getActualWight() {
-        return actualWight;
-    }
 
     public JTextField getUserActualWight() {
         return userActualWight;
     }
 
-    public JLabel getBmiResult() {
-        return bmiResult;
-    }
 
-    public JPanel getControls() {
-        return controls;
-    }
 
-    public Color getNewColor() {
-        return newColor;
+    public JLabel getHeightLabel() {
+        return heightLabel;
     }
 
 
-    private class SliderListener implements ChangeListener {
-        private int height;
-        @Override
-        public void stateChanged(ChangeEvent e) {
-            height = heightSlider.getValue();
-            heightLabel.setText("height: " + height);
 
-        }
+    @Override
+    public int getHeight() {
+        return height;
     }
 
-    private class TempListener implements ActionListener {
-        public void actionPerformed (ActionEvent event) {
-            double wightTemp, bmi;
-            String text = userActualWight.getText();
-            wightTemp = Integer.parseInt(text);
-            bmi = wightTemp/Math.pow(heightSlider.getValue(),2);
-            bmiResult.setText(Double.toString (bmi));
-        }
-    }
 }

@@ -41,68 +41,21 @@ public class PersonDetails extends JPanel {
 
     }
 
-//    public void setControls(JPanel controls) {
-//        this.controls = controls;
-//    }
-
-    public void setFirstName(JLabel firstName) {
-        this.firstName = firstName;
-    }
-
-    public void setUserFirstName(JTextField userFirstName) {
-        this.userFirstName = userFirstName;
-    }
-
-    public void setLastName(JLabel lastName) {
-        this.lastName = lastName;
-    }
-
-    public void setUserLastName(JTextField userLastName) {
-        this.userLastName = userLastName;
-    }
-
-    public void setAge(JLabel age) {
-        this.age = age;
-    }
-
-    public void setUserAge(JTextField userAge) {
-        this.userAge = userAge;
-    }
-
-    public void setNewColor(Color newColor) {
-        this.newColor = newColor;
-    }
-
-//    public JPanel getControls() {
-//        return controls;
-//    }
-
-    public JLabel getFirstName() {
-        return firstName;
+    public JTextField getUserAge() {
+        return userAge;
     }
 
     public JTextField getUserFirstName() {
         return userFirstName;
     }
 
-    public JLabel getLastName() {
-        return lastName;
-    }
+
 
     public JTextField getUserLastName() {
         return userLastName;
     }
 
-    public JLabel getAge() {
-        return age;
-    }
 
-    public JTextField getUserAge() {
-        return userAge;
-    }
 
-    public Color getNewColor() {
-        return newColor;
-    }
 
 }

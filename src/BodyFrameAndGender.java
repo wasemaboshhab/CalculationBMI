@@ -3,6 +3,7 @@ import java.awt.*;
 
 public class BodyFrameAndGender extends JPanel {
 //
+    double slimness;
     JLabel gender = new JLabel("Gender");
     JRadioButton male = new JRadioButton("Male");
     JRadioButton female = new JRadioButton("Female");
@@ -16,6 +17,14 @@ public class BodyFrameAndGender extends JPanel {
     Color newColor = new Color(160, 200, 135);
 
     ImageIcon health;
+
+    public double getSlimness() {
+        return slimness;
+    }
+
+    public void setSlimness(double slimness) {
+        this.slimness = slimness;
+    }
 
     public BodyFrameAndGender() {
         JPanel controls = new JPanel();
@@ -53,54 +62,21 @@ public class BodyFrameAndGender extends JPanel {
     }
 
 
-//    public JPanel getControls() {
-//        return controls;
-//    }
-
-
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         health.paintIcon(this, g, 0, 220);
     }
 
-    public JLabel getGender() {
-        return gender;
-    }
 
-    public JRadioButton getMale() {
-        return male;
-    }
-
-    public JRadioButton getFemale() {
-        return female;
-    }
 
     public ButtonGroup getGroupGender() {
         return groupGender;
     }
 
-    public JLabel getBodyFrame() {
-        return bodyFrame;
-    }
-
-    public JRadioButton getSmall() {
-        return small;
-    }
-
-    public JRadioButton getMedium() {
-        return medium;
-    }
-
-    public JRadioButton getLarge() {
-        return large;
-    }
 
     public ButtonGroup getGroupBodyFrame() {
         return groupBodyFrame;
     }
 
-    public Color getNewColor() {
-        return newColor;
-    }
 }
