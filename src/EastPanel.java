@@ -1,11 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
-public class HeightAndWight extends JPanel {
+public class EastPanel extends JPanel {
 
     private  JSlider heightSlider;
     private  JTextField userActualWight;
 
-    public HeightAndWight() {
+    public EastPanel() {
         setPreferredSize(new Dimension(300, 0));
         setBackground(Model.PANELS_COLOR);
         userActualWight = new JTextField();

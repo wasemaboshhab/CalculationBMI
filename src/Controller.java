@@ -1,27 +1,25 @@
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 
 public class Controller {
 
     public Controller(JSlider heightSlider, JLabel heightLabel) {
-        heightSlider.addChangeListener(e -> {
-            heightLabel.setText("Height: " + heightSlider.getValue());
-        });
+        heightSlider.addChangeListener(e -> heightLabel.setText("Height: " + heightSlider.getValue()));
+
     }
 
-    public Controller(PersonDetails personDetails, BodyFrameAndGender bodyFrameAndGender, HeightAndWight heightAndWight,
-                      JButton clearButton, JButton submitButton, ResultPanel resultPanel ,SubmitClear submitClear) {
+    public Controller(WestPanel westPanel, CenterPanel centerPanel, EastPanel eastPanel,
+                      JButton clearButton, JButton submitButton, ResultPanel resultPanel ) {
         clearButton.addActionListener(e -> {
-            personDetails.getUserFirstName().setText("");
-            personDetails.getUserLastName().setText("");
-            personDetails.getUserAge().setText("");
+            westPanel.getUserFirstName().setText("");
+            westPanel.getUserLastName().setText("");
+            westPanel.getUserAge().setText("");
 
-            bodyFrameAndGender.getGroupGender().clearSelection();
-            bodyFrameAndGender.getGroupBodyFrame().clearSelection();
+            centerPanel.getGroupGender().clearSelection();
+            centerPanel.getGroupBodyFrame().clearSelection();
 
-            heightAndWight.getHeightSlider().setValue(140);
-            heightAndWight.getUserActualWight().setText("");
+            eastPanel.getHeightSlider().setValue(140);
+            eastPanel.getUserActualWight().setText("");
 
             resultPanel.getBmi().setForeground(Color.BLACK);
             resultPanel.getBmi().setText("");
@@ -36,9 +34,9 @@ public class Controller {
 
         submitButton.addActionListener(e -> {
 
-            boolean allowToCalc = !personDetails.getUserAge().getText().equals("")
-                    && !heightAndWight.getUserActualWight().getText().equals("")
-                    && bodyFrameAndGender.getGroupBodyFrame().getSelection() != null;
+            boolean allowToCalc = !westPanel.getUserAge().getText().equals("")
+                    && !eastPanel.getUserActualWight().getText().equals("")
+                    && centerPanel.getGroupBodyFrame().getSelection() != null;
 
             // check if the user fill the Important Details for the calculation
             if (allowToCalc) {
@@ -47,9 +45,9 @@ public class Controller {
                     // calc the Bmi if the user filled out normal data
                     resultPanel.setBackground(Model.HEADER_PANEL_COLOR);
                     resultPanel.getBmi().setText("BMI: ");
-                    float height = (float) heightAndWight.getHeightSlider().getValue(); // 160 Integer
+                    float height = (float) eastPanel.getHeightSlider().getValue(); // 160 Integer
                     float userHeight =  ( (height / 100.0f) * ( height / 100.0f)); // 1.6 ^ 2
-                    String weight = heightAndWight.getUserActualWight().getText();
+                    String weight = eastPanel.getUserActualWight().getText();
                     float userWeight = Float.parseFloat(weight);
 
                     float userBmi = (userWeight / userHeight);
@@ -63,18 +61,18 @@ public class Controller {
                     else{resultPanel.getWeightStatus().setText("Extreme Obese");}
                     resultPanel.getIdealWeight().setText("<html><br>Ideal Weight:<html>");
 
-                    float userAge = Float.parseFloat(personDetails.getUserAge().getText());
+                    float userAge = Float.parseFloat(westPanel.getUserAge().getText());
 
                     float slimness =  0.0f;
-                    if (bodyFrameAndGender.getSmall().isSelected()){ slimness = Model.BODY_FRAME_SMALL;}
-                    if (bodyFrameAndGender.getMedium().isSelected()){ slimness = Model.BODY_FRAME_MEDIUM;}
-                    if (bodyFrameAndGender.getLarge().isSelected()){ slimness = Model.BODY_FRAME_LARGE;}
+                    if (centerPanel.getSmall().isSelected()){ slimness = Model.BODY_FRAME_SMALL;}
+                    if (centerPanel.getMedium().isSelected()){ slimness = Model.BODY_FRAME_MEDIUM;}
+                    if (centerPanel.getLarge().isSelected()){ slimness = Model.BODY_FRAME_LARGE;}
 
                     float idealWeight = ((height - 100.0f + (userAge / 10)) * 0.9f * slimness);
 
                     String userIdealWeight = Float.toString(idealWeight);
                     resultPanel.getIdealWeightResult().setText("<html><br><html>" + userIdealWeight);
-                    resultPanel.getActualWeight().setText(" Actual weight: " + (Float.parseFloat(heightAndWight.getUserActualWight().getText())));
+                    resultPanel.getActualWeight().setText(" Actual weight: " + (Float.parseFloat(eastPanel.getUserActualWight().getText())));
 
                 } catch (NumberFormatException exception) {
                     // catching invalid data (an exception with convert the user age/weight to number)

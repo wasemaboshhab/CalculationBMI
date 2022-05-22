@@ -2,12 +2,11 @@ import javax.swing.*;
 import java.awt.*;
 
 
-public class PersonDetails extends JPanel {
-
-
+public class WestPanel extends JPanel {
     private JTextField userFirstName , userLastName, userAge;
 
-    public PersonDetails() {
+
+    public WestPanel() {
         setBackground(Model.PANELS_COLOR);
         setPreferredSize(new Dimension(230, 0));
 

@@ -3,14 +3,14 @@ import java.awt.*;
 
 
 
-public class SubmitClear extends JPanel {
+public class SouthPanel extends JPanel {
 
 
     private  JButton submitButton;
     private  JButton clearButton;
 
 
-    public SubmitClear() {
+    public SouthPanel() {
         setBackground(Color.WHITE);
         setPreferredSize(new Dimension(0, 40));
         setLayout(new FlowLayout(FlowLayout.RIGHT));

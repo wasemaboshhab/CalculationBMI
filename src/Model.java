@@ -15,7 +15,6 @@ public class Model {
     public static final double UNDER_WEIGHT = 18.5;
     public static final double NORMAL = 24.9;
     public static final double OVER_WEIGHT = 29.9;
-    public static final int OBESE = 30;
     public static final int EXTREME_OBESE = 35;
 
 

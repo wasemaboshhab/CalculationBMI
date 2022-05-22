@@ -1,12 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class BodyFrameAndGender extends JPanel {
+public class CenterPanel extends JPanel {
     private ButtonGroup groupGender, groupBodyFrame;
     private JRadioButton small, medium, large;
     private ImageIcon health;
 
-    public BodyFrameAndGender() {
+    public CenterPanel() {
         this.setBackground(Model.PANELS_COLOR);
         JLabel gender = new JLabel("Gender");
         JRadioButton male = new JRadioButton("Male");

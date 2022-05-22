@@ -7,7 +7,7 @@ public class ResultPanel extends JPanel {
             ,idealWeightResult, actualWeight;
 
     public ResultPanel() {
-        setPreferredSize(new Dimension(150, 100));
+        setPreferredSize(new Dimension(180, 100));
         setBackground(Model.PANELS_COLOR);
 
         bmi = new JLabel();

@@ -6,25 +6,24 @@ public class MainPanel extends JPanel {
 
     public MainPanel() {
         setLayout(new BorderLayout());
-
-        BodyFrameAndGender bodyFrameAndGender = new BodyFrameAndGender();
         NorthPanel northPanel = new NorthPanel();
-        SubmitClear submitClear = new SubmitClear();
-        HeightAndWight heightAndWight = new HeightAndWight();
-        PersonDetails personDetails = new PersonDetails();
+        CenterPanel centerPanel = new CenterPanel();
+        SouthPanel southPanel = new SouthPanel();
+        WestPanel westPanel = new WestPanel();
+        EastPanel eastPanel = new EastPanel();
         ResultPanel resultPanel = new ResultPanel();
 
-        add(personDetails, BorderLayout.WEST);
+        add(westPanel, BorderLayout.WEST);
         add(northPanel,BorderLayout.NORTH);
-        add(bodyFrameAndGender,BorderLayout.CENTER);
-        add(submitClear,BorderLayout.SOUTH);
-        add(heightAndWight,BorderLayout.EAST);
+        add(centerPanel,BorderLayout.CENTER);
+        add(southPanel,BorderLayout.SOUTH);
+        add(eastPanel,BorderLayout.EAST);
 
-        heightAndWight.add(resultPanel);
+        eastPanel.add(resultPanel);
 
 
-        new Controller(personDetails, bodyFrameAndGender, heightAndWight, submitClear.getClearButton()
-                , submitClear.getSubmitButton(), resultPanel, submitClear);
+        new Controller(westPanel, centerPanel, eastPanel, southPanel.getClearButton()
+                , southPanel.getSubmitButton(), resultPanel);
 
     }
 
