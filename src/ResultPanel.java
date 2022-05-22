@@ -2,24 +2,22 @@ import javax.swing.*;
 import java.awt.*;
 
 public class ResultPanel extends JPanel {
-    JLabel bmi, bmiResult, weightStatus, idealWeight
+
+    private  JLabel bmi, bmiResult, weightStatus, idealWeight
             ,idealWeightResult, actualWeight;
-    ImageIcon healthBody;
-
-
 
     public ResultPanel() {
-        setPreferredSize(new Dimension(200, 200));
-        setBackground(new Color(160, 200, 135));
+        setPreferredSize(new Dimension(150, 100));
+        setBackground(Model.PANELS_COLOR);
+
+        bmi = new JLabel();
+        bmiResult = new JLabel();
+        weightStatus = new JLabel();
+        idealWeight = new JLabel();
+        idealWeightResult = new JLabel();
+        actualWeight = new JLabel();
 
 
-        bmi = new JLabel("");
-        bmiResult = new JLabel("");
-        weightStatus = new JLabel("");
-        idealWeight = new JLabel("");
-        idealWeightResult = new JLabel("");
-        actualWeight = new JLabel("");
-        healthBody = new ImageIcon("healthy.jfif");
 
         bmi.setAlignmentX(Component.CENTER_ALIGNMENT);
         add(bmi);
@@ -43,12 +41,6 @@ public class ResultPanel extends JPanel {
 
     }
 
-
-
-    public ImageIcon getHealthBody() {
-        return healthBody;
-    }
-
     public JLabel getActualWeight() {
         return actualWeight;
     }
@@ -68,8 +60,6 @@ public class ResultPanel extends JPanel {
     public JLabel getWeightStatus() {
         return weightStatus;
     }
-
-
 
     public JLabel getBmi() {
         return bmi;

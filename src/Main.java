@@ -14,10 +14,6 @@ public class Main {
         frame.getContentPane().add(mainPanel);
         frame.pack();
         frame.setVisible(true);
-        frame.setResizable(false);
-
-
-
 
 
     }
