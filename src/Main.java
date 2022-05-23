@@ -1,18 +1,22 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Main {
+public class Main extends JFrame {
     public static final int WINDOW_WIDTH = 700;
     public static final int WINDOW_HEIGHT = 500;
 
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("Calculation of physical condition");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setPreferredSize(new Dimension(WINDOW_WIDTH,WINDOW_HEIGHT));
-        frame.setLocationRelativeTo(null);
-        frame.getContentPane().add(new MainPanel());
-        frame.pack();
-        frame.setVisible(true);
+    public Main(String title) throws HeadlessException {
+        super(title);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setPreferredSize(new Dimension(WINDOW_WIDTH, WINDOW_HEIGHT));
+        setLocationRelativeTo(null);
+        getContentPane().add(new MainView());
+        pack();
+        setVisible(true);
 
+    }
+
+    public static void main(String[] args) {
+        new Main("Calculation BMI");
     }
 }

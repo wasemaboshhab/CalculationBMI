@@ -2,9 +2,9 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class MainPanel extends JPanel {
+public class MainView extends JPanel {
 
-    public MainPanel() {
+    public MainView() {
         setLayout(new BorderLayout());
         NorthPanel northPanel = new NorthPanel();
         CenterPanel centerPanel = new CenterPanel();
